@@ -617,42 +617,25 @@ document.addEventListener("DOMContentLoaded", () => {
         applicaLingua(lang);
     };
 
-    // Caricamento automatico ad ogni pagina
     function avviaGoogleTranslate() {
-
         const lingua = linguaSalvata();
-
         aggiornaMenu(lingua);
+
+        // Carica lo script esterno di Google solo se la lingua scelta non è l'italiano
+        if (lingua === "it") return;
 
         if (!document.getElementById("google_translate_element")) {
             return;
         }
 
         if (window.google && window.google.translate) {
-
             window.googleTranslateElementInit();
-
         } else if (!document.getElementById("google-translate-script")) {
-
             const script = document.createElement("script");
-
             script.id = "google-translate-script";
-
-            script.src =
-                "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-
+            script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
             document.body.appendChild(script);
         }
     }
-
-    if (document.readyState === "loading") {
-
-        document.addEventListener("DOMContentLoaded", avviaGoogleTranslate);
-
-    } else {
-
-        avviaGoogleTranslate();
-    }
-
 })();
 

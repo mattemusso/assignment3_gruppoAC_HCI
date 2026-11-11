@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner | UniTogether</title>
+  <link rel="stylesheet" href="../stile/stile.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">UniTogether</a>
+    <button class="menu-toggle" id="menuToggle"
+            aria-label="Apri menu"
+            aria-expanded="false"
+            aria-controls="mainNav">
+      ☰
+    </button>
+
+    <nav id="mainNav">
+      <div class="language-selector">
+        <select id="languageSelect" onchange="cambiaLinguaGoogle(this.value)" aria-label="Seleziona lingua">
+          <option value="it">🇮🇹</option>
+          <option value="en">🇬🇧</option>
+          <option value="es">🇪🇸</option>
+          <option value="fr">🇫🇷</option>
+          <option value="de">🇩🇪</option>
+        </select>
+      </div>
+
+      <!-- Contenitore nascosto indispensabile per far funzionare Google Translate -->
+      <div id="google_translate_element" style="display:none;"></div>
+      <button
+              id="themeToggle"
+              class="theme-toggle"
+              type="button"
+              aria-label="Attiva modalità scura"
+              aria-pressed="false">
+        🌙
+      </button>
+      <a href="index.html">Home</a>
+      <a href="progetti.html">Progetti</a>
+      <a href="come-funziona.html">Come funziona</a>
+      <div class="partner-dropdown">
+
+        <button class="partner-btn" id="partnerBtn"
+                aria-expanded="false" aria-current="page">
+          Partner ▾
+        </button>
+
+        <div class="partner-menu" id="partnerMenu">
+
+          <!-- BANCHE -->
+          <div class="partner-item">
+            <button class="submenu-btn" aria-expanded="false">
+              Banche <span>›</span>
+            </button>
+
+            <div class="partner-submenu">
+              <a href="banche/banca1.html">Banca 1</a>
+              <a href="banche/banca2.html">Banca 2</a>
+              <a href="banche/banca3.html">Banca 3</a>
+            </div>
+          </div>
+
+          <!-- ENTI PUBBLICI -->
+          <div class="partner-item">
+            <button class="submenu-btn" aria-expanded="false">
+              Enti Pubblici <span>›</span>
+            </button>
+
+            <div class="partner-submenu">
+              <a href="enti/ente1.html">Ente pubblico 1</a>
+              <a href="enti/ente2.html">Ente pubblico 2</a>
+              <a href="enti/ente3.html">Ente pubblico 3</a>
+            </div>
+          </div>
+
+          <!-- FONDAZIONI -->
+          <div class="partner-item">
+            <button class="submenu-btn" aria-expanded="false">
+              Fondazioni <span>›</span>
+            </button>
+
+            <div class="partner-submenu">
+              <a href="fondazioni/fondazione1.html">Fondazione 1</a>
+              <a href="fondazioni/fondazione2.html">Fondazione 2</a>
+              <a href="fondazioni/fondazione3.html">Fondazione 3</a>
+            </div>
+          </div>
+
+          <!-- UNIVERSITÀ -->
+          <div class="partner-item">
+            <button class="submenu-btn" aria-expanded="false">
+              Università <span>›</span>
+            </button>
+
+            <div class="partner-submenu">
+              <a href="index.html">Università di Torino</a>
+              <a href="universita/firenze.html">Università di Firenze</a>
+              <a href="universita/bocconi.html">Università Bocconi</a>
+              <a href="universita/polito.html">Politecnico di Torino</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <a href="aggiungi.html">
+            Lancia un progetto ↗
+        </a>
+      <a href="login.html">Accedi</a>
+    </nav>
+  </header>
+
+  <nav class="breadcrumbs" aria-label="Percorso">
+    <a href="index.html">Home</a>
+    <div>&gt;</div>
+    <span aria-current="page">Partner</span>
+  </nav>
+
+  <main class="container">
+    <section class="page-hero">
+      <p class="eyebrow">Collaborazione e impatto</p>
+      <h1>Diventa partner</h1>
+      <p>
+        Metti competenze, risorse e relazioni al servizio di progetti
+        capaci di generare valore per le comunità.
+      </p>
+      <a class="btn" href="login.html">Accedi come partner</a>
+    </section>
+
+    <section class="section">
+      <h2>Perché collaborare con noi?</h2>
+      <div class="feature-grid">
+        <article class="card">
+          <h3>Scopri nuove idee</h3>
+          <p>Conosci iniziative in cerca di competenze, strumenti e collaborazioni.</p>
+        </article>
+        <article class="card">
+          <h3>Crea connessioni</h3>
+          <p>Entra in contatto con progettisti e altri soggetti interessati a collaborare.</p>
+        </article>
+        <article class="card">
+          <h3>Genera valore</h3>
+          <p>Contribuisci allo sviluppo di iniziative sociali, culturali e sostenibili.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Come diventare partner</h2>
+      <ol class="steps-list">
+        <li>
+          <h3>Registrati</h3>
+          <p>Crea un account scegliendo il profilo partner.</p>
+        </li>
+        <li>
+          <h3>Presenta le tue competenze</h3>
+          <p>Descrivi la tua organizzazione, i servizi e le aree di interesse.</p>
+        </li>
+        <li>
+          <h3>Trova opportunità</h3>
+          <p>Esplora i progetti e individua possibili occasioni di collaborazione.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="cta-section">
+      <h2>Costruiamo qualcosa insieme</h2>
+      <p>Accedi all'area partner per iniziare.</p>
+      <a class="btn" href="login.html">Vai al login partner</a>
+      <p class="small-text">
+        La registrazione e la gestione delle collaborazioni richiedono
+        l'attivazione dei servizi backend.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer-simple">
+    © 2026 UniTogether · Privacy · Condizioni d'uso
+  </footer>
+</body>
+</html>
