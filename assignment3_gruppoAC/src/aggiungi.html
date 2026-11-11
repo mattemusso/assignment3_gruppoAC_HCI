@@ -7,53 +7,25 @@
 
     <link rel="stylesheet" href="../stile/stile.css">
     <style>
-        /* Regole per il criterio WCAG 1.4.10 (Reflow - Tech C33) */
-        html, body {
-            max-width: 100%;
-            overflow-x: hidden;
-        }
-        .add-project-page,
-        .add-project-layout,
-        .wizard-sidebar,
-        .wizard-content,
-        form,
-        .wizard-panel.active,
-        .field-group,
-        .field-row,
-        .category-options,
-        .category-option,
-        .review-checkbox,
-        .wizard-actions {
+        .field-group {
             display: flex;
+            flex-direction: column;
             flex-wrap: wrap;
             width: 100%;
             max-width: 100%;
-            box-sizing: border-box;
         }
-        .wizard-panel {
-            display: none;
+        .category-option, .review-checkbox {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 100%;
         }
-        .field-group {
-            flex-direction: column;
-        }
-        label,
-        input,
-        select,
-        textarea,
-        .field-group label,
-        .field-group input:not([type="radio"]):not([type="checkbox"]),
-        .field-group textarea {
-            width: 100%;
+        label, input, select, textarea {
             max-width: 100%;
             box-sizing: border-box;
         }
-        .field-group input:not([type="radio"]):not([type="checkbox"]),
+        .field-group input:not([type="radio"]):not([type="checkbox"]):not([type="file"]),
         .field-group textarea {
-            flex: 1 1 100%;
-        }
-        .category-option input[type="radio"],
-        .review-checkbox input[type="checkbox"] {
-            width: auto;
+            width: 100%;
         }
         .group-label {
             display: block;
