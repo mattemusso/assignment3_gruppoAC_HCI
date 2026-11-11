@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Come funziona | UniTogether</title>
+  <link rel="stylesheet" href="../stile/stile.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body>
+<a href="#mainContent" class="skip-link">Salta al contenuto principale</a>
+
+<header class="site-header">
+  <a class="logo" href="index.html">UniTogether</a>
+
+  <button class="menu-toggle" id="menuToggle"
+          type="button"
+          aria-label="Apri menu di navigazione"
+          aria-expanded="false"
+          aria-controls="mainNav">
+    <span aria-hidden="true">☰</span>
+  </button>
+
+  <nav id="mainNav" aria-label="Menu principale">
+    <div class="language-selector">
+      <label for="languageSelect" class="sr-only">Seleziona lingua</label>
+      <select id="languageSelect" name="language" autocomplete="language" onchange="cambiaLinguaGoogle(this.value)" aria-label="Seleziona lingua">
+        <option value="it">🇮🇹 IT</option>
+        <option value="en">🇬🇧 EN</option>
+        <option value="es">🇪🇸 ES</option>
+        <option value="fr">🇫🇷 FR</option>
+        <option value="de">🇩🇪 DE</option>
+      </select>
+    </div>
+
+    <!-- Contenitore nascosto per Google Translate ignorato dagli screen reader -->
+    <div id="google_translate_element" hidden aria-hidden="true"></div>
+
+    <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Attiva modalità scura"
+            aria-pressed="false">
+      <span aria-hidden="true">🌙</span>
+    </button>
+    <a href="index.html">Home</a>
+    <a href="progetti.html">Progetti</a>
+    <a href="come-funziona.html" aria-current="page">Come funziona</a>
+
+    <div class="partner-dropdown">
+      <button class="partner-btn" id="partnerBtn" type="button" aria-expanded="false" aria-controls="partnerMenu">
+        Partner <span aria-hidden="true">▾</span>
+      </button>
+      <div class="partner-menu" id="partnerMenu">
+        <div class="partner-item">
+          <button class="submenu-btn" type="button" aria-expanded="false">Banche <span aria-hidden="true">›</span></button>
+          <div class="partner-submenu">
+            <a href="errore.html">Banca 1</a>
+            <a href="errore.html">Banca 2</a>
+            <a href="errore.html">Banca 3</a>
+          </div>
+        </div>
+        <div class="partner-item">
+          <button class="submenu-btn" type="button" aria-expanded="false">Enti Pubblici <span aria-hidden="true">›</span></button>
+          <div class="partner-submenu">
+            <a href="errore.html">Ente pubblico 1</a>
+            <a href="errore.html">Ente pubblico 2</a>
+            <a href="errore.html">Ente pubblico 3</a>
+          </div>
+        </div>
+        <div class="partner-item">
+          <button class="submenu-btn" type="button" aria-expanded="false">Fondazioni <span aria-hidden="true">›</span></button>
+          <div class="partner-submenu">
+            <a href="errore.html">Fondazione 1</a>
+            <a href="errore.html">Fondazione 2</a>
+            <a href="errore.html">Fondazione 3</a>
+          </div>
+        </div>
+        <div class="partner-item">
+          <button class="submenu-btn" type="button" aria-expanded="false">Università <span aria-hidden="true">›</span></button>
+          <div class="partner-submenu">
+            <a href="index.html">Università di Torino</a>
+            <a href="errore.html">Università di Firenze</a>
+            <a href="errore.html">Università Bocconi</a>
+            <a href="errore.html">Politecnico di Torino</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="aggiungi.html">Lancia un progetto <span aria-hidden="true">↗</span></a>
+    <a href="login.html">Accedi</a>
+  </nav>
+</header>
+
+<nav class="breadcrumbs" aria-label="Percorso">
+  <a href="index.html">Home</a>
+  <span aria-hidden="true">&gt;</span>
+  <span aria-current="page">Come funziona</span>
+</nav>
+
+<main id="mainContent" class="container">
+  <section class="page-hero">
+    <p class="eyebrow">Dall'idea al progetto</p>
+    <h1>Come funziona UniTogether</h1>
+    <p>
+      Una piattaforma pensata per mettere in relazione chi sviluppa
+      nuove idee con chi può contribuire a realizzarle.
+    </p>
+    <a class="btn" href="progetti.html">Esplora i progetti</a>
+  </section>
+
+  <section class="section">
+    <h2>Tre profili, un obiettivo comune</h2>
+    <div class="feature-grid">
+      <article class="card">
+        <h3>1. Progettista</h3>
+        <p>
+          Presenta la tua idea, descrivi gli obiettivi, definisci il
+          budget e condividi gli aggiornamenti della campagna.
+        </p>
+        <a class="btn" href="login.html?ruolo=progettista">Accedi come progettista <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card">
+        <h3>2. Partner</h3>
+        <p>
+          Scopri iniziative, presenta le tue competenze e individua
+          opportunità di collaborazione con i progettisti.
+        </p>
+        <a class="btn" href="partner.html">Scopri l'area partner <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card">
+        <h3>3. Gestore della campagna</h3>
+        <p>
+          Segui l'andamento delle campagne, verifica le informazioni
+          e monitora le attività di gestione.
+        </p>
+        <a class="btn" href="login.html?ruolo=gestore">Accedi come gestore <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Il percorso di un progetto</h2>
+    <ol class="steps-list">
+      <li>
+        <h3>Presentazione</h3>
+        <p>Il progettista illustra l'idea, gli obiettivi e il budget necessario.</p>
+      </li>
+      <li>
+        <h3>Valutazione e pubblicazione</h3>
+        <p>Il progetto viene controllato secondo le regole della piattaforma.</p>
+      </li>
+      <li>
+        <h3>Promozione e collaborazione</h3>
+        <p>La campagna viene condivisa e può entrare in contatto con partner interessati.</p>
+      </li>
+      <li>
+        <h3>Monitoraggio</h3>
+        <p>Il team segue i risultati e aggiorna le informazioni sul progetto.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h2>Domande frequenti</h2>
+
+    <details class="faq-item">
+      <summary>Devo avere un account per esplorare i progetti?</summary>
+      <p>Puoi consultare il catalogo dimostrativo senza effettuare il login.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Come posso presentare una nuova idea?</summary>
+      <p>Accedi come progettista. La creazione e l'invio di una campagna
+        richiedono che i relativi servizi siano attivi.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>È possibile effettuare pagamenti online?</summary>
+      <p>In questa versione dimostrativa i pagamenti non sono attivi.
+        Per raccogliere fondi reali occorre integrare un sistema di
+        pagamento e i servizi backend necessari.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Qual è il ruolo del gestore della campagna?</summary>
+      <p>Il gestore si occupa delle attività di controllo e monitoraggio
+        previste dalle autorizzazioni e dalle regole della piattaforma.</p>
+    </details>
+  </section>
+
+  <section class="call-to-action">
+    <div>
+      <h2>PRONTO A INIZIARE?</h2>
+      <p>Crea un progetto.</p>
+    </div>
+    <a href="aggiungi.html" class="btn dark-btn">Lancia un progetto <span aria-hidden="true">↗</span></a>
+  </section>
+</main>
+
+<footer class="footer-simple">
+  © 2026 UniTogether · Privacy · Condizioni d'uso
+</footer>
+</body>
+</html>

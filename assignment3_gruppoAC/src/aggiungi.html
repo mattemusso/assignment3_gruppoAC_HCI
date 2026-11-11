@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lancia un progetto | UniTogether</title>
+
+    <link rel="stylesheet" href="../stile/stile.css">
+    <style>
+        /* Regole per il criterio WCAG 1.4.10 (Reflow - Tech C33) */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        .add-project-page,
+        .add-project-layout,
+        .wizard-sidebar,
+        .wizard-content,
+        form,
+        .wizard-panel.active,
+        .field-group,
+        .field-row,
+        .category-options,
+        .category-option,
+        .review-checkbox,
+        .wizard-actions {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .wizard-panel {
+            display: none;
+        }
+        .field-group {
+            flex-direction: column;
+        }
+        label,
+        input,
+        select,
+        textarea,
+        .field-group label,
+        .field-group input:not([type="radio"]):not([type="checkbox"]),
+        .field-group textarea {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .field-group input:not([type="radio"]):not([type="checkbox"]),
+        .field-group textarea {
+            flex: 1 1 100%;
+        }
+        .category-option input[type="radio"],
+        .review-checkbox input[type="checkbox"] {
+            width: auto;
+        }
+        .group-label {
+            display: block;
+            font-size: .92rem;
+            font-weight: 700;
+            margin-bottom: 9px;
+            width: 100%;
+        }
+    </style>
+
+    <script src="../js/app.js" defer></script>
+    <script src="../js/aggiungi.js" defer></script>
+</head>
+
+<body>
+<a href="#mainContent" class="skip-link">Salta al contenuto principale</a>
+
+<header class="site-header">
+    <a class="logo" href="index.html">UniTogether</a>
+
+    <button class="menu-toggle" id="menuToggle"
+            type="button"
+            aria-label="Apri menu di navigazione"
+            aria-expanded="false"
+            aria-controls="mainNav">
+        <span aria-hidden="true">☰</span>
+    </button>
+
+    <nav id="mainNav" aria-label="Menu principale">
+        <div class="language-selector">
+            <label for="languageSelect" class="sr-only">Seleziona lingua</label>
+            <select id="languageSelect" name="language" autocomplete="language" onchange="cambiaLinguaGoogle(this.value)" aria-label="Seleziona lingua">
+                <option value="it">🇮🇹 IT</option>
+                <option value="en">🇬🇧 EN</option>
+                <option value="es">🇪🇸 ES</option>
+                <option value="fr">🇫🇷 FR</option>
+                <option value="de">🇩🇪 DE</option>
+            </select>
+        </div>
+
+        <!-- Contenitore nascosto per Google Translate ignorato dagli screen reader -->
+        <div id="google_translate_element" hidden aria-hidden="true"></div>
+
+        <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Attiva modalità scura"
+                aria-pressed="false">
+            <span aria-hidden="true">🌙</span>
+        </button>
+        <a href="index.html">Home</a>
+        <a href="progetti.html">Progetti</a>
+        <a href="come-funziona.html">Come funziona</a>
+
+        <div class="partner-dropdown">
+            <button class="partner-btn" id="partnerBtn" type="button" aria-expanded="false" aria-controls="partnerMenu">
+                Partner <span aria-hidden="true">▾</span>
+            </button>
+            <div class="partner-menu" id="partnerMenu">
+                <div class="partner-item">
+                    <button class="submenu-btn" type="button" aria-expanded="false">Banche <span aria-hidden="true">›</span></button>
+                    <div class="partner-submenu">
+                        <a href="errore.html">Banca 1</a>
+                        <a href="errore.html">Banca 2</a>
+                        <a href="errore.html">Banca 3</a>
+                    </div>
+                </div>
+                <div class="partner-item">
+                    <button class="submenu-btn" type="button" aria-expanded="false">Enti Pubblici <span aria-hidden="true">›</span></button>
+                    <div class="partner-submenu">
+                        <a href="errore.html">Ente pubblico 1</a>
+                        <a href="errore.html">Ente pubblico 2</a>
+                        <a href="errore.html">Ente pubblico 3</a>
+                    </div>
+                </div>
+                <div class="partner-item">
+                    <button class="submenu-btn" type="button" aria-expanded="false">Fondazioni <span aria-hidden="true">›</span></button>
+                    <div class="partner-submenu">
+                        <a href="errore.html">Fondazione 1</a>
+                        <a href="errore.html">Fondazione 2</a>
+                        <a href="errore.html">Fondazione 3</a>
+                    </div>
+                </div>
+                <div class="partner-item">
+                    <button class="submenu-btn" type="button" aria-expanded="false">Università <span aria-hidden="true">›</span></button>
+                    <div class="partner-submenu">
+                        <a href="index.html">Università di Torino</a>
+                        <a href="errore.html">Università di Firenze</a>
+                        <a href="errore.html">Università Bocconi</a>
+                        <a href="errore.html">Politecnico di Torino</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="aggiungi.html" aria-current="page">Lancia un progetto <span aria-hidden="true">↗</span></a>
+        <a href="login.html">Accedi</a>
+    </nav>
+</header>
+
+<main id="mainContent" class="add-project-page">
+
+    <section class="add-project-heading">
+        <p class="eyebrow">LA TUA IDEA MERITA DI CRESCERE</p>
+        <h1>Costruiamo qualcosa <span>insieme.</span></h1>
+        <p>
+            Raccontaci la tua idea, definisci il tuo obiettivo
+            e trova le persone che possono aiutarti a realizzarla.
+        </p>
+    </section>
+
+    <div class="add-project-layout">
+
+        <!-- SIDEBAR -->
+
+        <aside class="wizard-sidebar" aria-label="Avanzamento creazione progetto">
+
+            <div class="wizard-progress">
+                <div class="wizard-progress-header">
+                    <strong>La tua candidatura</strong>
+                    <span id="progressPercentage">20%</span>
+                </div>
+
+                <div class="wizard-progress-track" aria-hidden="true">
+                    <span id="progressBar"></span>
+                </div>
+            </div>
+
+            <div class="wizard-steps">
+
+                <button type="button" class="wizard-step active" data-step="0">
+                    <span class="step-number" aria-hidden="true">1</span>
+                    <span>
+                        <strong>Informazioni generali</strong>
+                        <small>Presenta la tua idea</small>
+                    </span>
+                </button>
+
+                <button type="button" class="wizard-step" data-step="1">
+                    <span class="step-number" aria-hidden="true">2</span>
+                    <span>
+                        <strong>Obiettivo e categoria</strong>
+                        <small>Definisci il tuo progetto</small>
+                    </span>
+                </button>
+
+                <button type="button" class="wizard-step" data-step="2">
+                    <span class="step-number" aria-hidden="true">3</span>
+                    <span>
+                        <strong>La tua storia</strong>
+                        <small>Spiega perché è importante</small>
+                    </span>
+                </button>
+
+                <button type="button" class="wizard-step" data-step="3">
+                    <span class="step-number" aria-hidden="true">4</span>
+                    <span>
+                        <strong>Immagini</strong>
+                        <small>Dai un volto alla tua idea</small>
+                    </span>
+                </button>
+
+                <button type="button" class="wizard-step" data-step="4">
+                    <span class="step-number" aria-hidden="true">5</span>
+                    <span>
+                        <strong>Riepilogo</strong>
+                        <small>Controlla e invia</small>
+                    </span>
+                </button>
+
+            </div>
+
+            <div class="wizard-help">
+                <strong>Hai bisogno di aiuto?</strong>
+                <p>Puoi salvare la bozza e riprendere quando vuoi.</p>
+            </div>
+
+        </aside>
+
+        <!-- FORM -->
+
+        <section class="wizard-content">
+
+            <div class="wizard-content-header">
+                <div>
+                    <span class="eyebrow" id="stepEyebrow">PASSAGGIO 1 DI 5</span>
+                    <h2 id="stepTitle">Presenta la tua idea</h2>
+                    <p id="stepDescription">
+                        Cominciamo dalle informazioni principali.
+                    </p>
+                </div>
+
+                <span class="draft-status" id="draftStatus" aria-live="polite">
+                    Bozza non salvata
+                </span>
+            </div>
+
+            <form id="projectForm" novalidate>
+
+                <!-- STEP 1 -->
+
+                <div class="wizard-panel active" data-panel="0">
+
+                    <div class="field-group">
+                        <label for="projectTitle">Nome del progetto *</label>
+                        <input type="text" id="projectTitle" name="projectTitle"
+                               autocomplete="off"
+                               maxlength="80"
+                               placeholder="Es. Un laboratorio per il futuro"
+                               required>
+                        <small>Un titolo breve, chiaro e riconoscibile.</small>
+                        <span class="field-error" aria-live="polite"></span>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="projectSubtitle">Sottotitolo</label>
+                        <input type="text" id="projectSubtitle" name="projectSubtitle"
+                               autocomplete="off"
+                               maxlength="120"
+                               placeholder="Descrivi la tua idea in una frase">
+                    </div>
+
+                    <div class="field-row">
+
+                        <div class="field-group">
+                            <label for="projectUniversity">Università *</label>
+                            <input type="text" id="projectUniversity" name="projectUniversity"
+                                   autocomplete="organization"
+                                   placeholder="Es. Università di Torino"
+                                   required>
+                            <span class="field-error" aria-live="polite"></span>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="projectLocation">Località *</label>
+                            <input type="text" id="projectLocation" name="projectLocation"
+                                   autocomplete="address-level2"
+                                   placeholder="Es. Torino"
+                                   required>
+                            <span class="field-error" aria-live="polite"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="field-group">
+                        <label for="projectTeam">Team o referente</label>
+                        <input type="text" id="projectTeam" name="projectTeam"
+                               autocomplete="off"
+                               placeholder="Es. Associazione studenti UniTo">
+                    </div>
+
+                </div>
+
+                <!-- STEP 2 -->
+
+                <div class="wizard-panel" data-panel="1">
+
+                    <div class="field-group" role="radiogroup" aria-labelledby="categoryGroupLabel">
+                        <span id="categoryGroupLabel" class="group-label">Categoria del progetto *</span>
+
+                        <div class="category-options">
+
+                            <label for="catAmbiente" class="category-option green">
+                                <input type="radio" id="catAmbiente" name="category"
+                                       value="ambiente" autocomplete="off" required>
+                                <span aria-hidden="true">🌱</span>
+                                <strong>Ambiente</strong>
+                                <small>Sostenibilità e natura</small>
+                            </label>
+
+                            <label for="catCultura" class="category-option purple">
+                                <input type="radio" id="catCultura" name="category"
+                                       value="cultura" autocomplete="off">
+                                <span aria-hidden="true">🎨</span>
+                                <strong>Cultura</strong>
+                                <small>Arte e conoscenza</small>
+                            </label>
+
+                            <label for="catTecnologia" class="category-option blue">
+                                <input type="radio" id="catTecnologia" name="category"
+                                       value="tecnologia" autocomplete="off">
+                                <span aria-hidden="true">💡</span>
+                                <strong>Tecnologia</strong>
+                                <small>Innovazione e ricerca</small>
+                            </label>
+
+                            <label for="catSociale" class="category-option orange">
+                                <input type="radio" id="catSociale" name="category"
+                                       value="sociale" autocomplete="off">
+                                <span aria-hidden="true">🤝</span>
+                                <strong>Sociale</strong>
+                                <small>Comunità e inclusione</small>
+                            </label>
+
+                        </div>
+
+                        <span class="field-error" id="categoryError" aria-live="polite"></span>
+                    </div>
+
+                    <div class="field-row">
+
+                        <div class="field-group">
+                            <label for="projectGoal">Obiettivo economico (€) *</label>
+                            <input type="number" id="projectGoal" name="projectGoal"
+                                   autocomplete="off"
+                                   min="1" max="10000000"
+                                   step="1"
+                                   placeholder="Es. 5000" required>
+                            <span class="field-error" aria-live="polite"></span>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="projectDeadline">Scadenza *</label>
+                            <input type="date" id="projectDeadline" name="projectDeadline"
+                                   autocomplete="off" required>
+                            <span class="field-error" aria-live="polite"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="field-group">
+                        <label for="projectBeneficiaries">A chi si rivolge?</label>
+                        <input type="text" id="projectBeneficiaries" name="projectBeneficiaries"
+                               autocomplete="off"
+                               placeholder="Es. Studenti universitari">
+                    </div>
+
+                </div>
+
+                <!-- STEP 3 -->
+
+                <div class="wizard-panel" data-panel="2">
+
+                    <div class="field-group">
+                        <label for="projectShortDescription">
+                            Descrizione breve *
+                        </label>
+
+                        <textarea id="projectShortDescription" name="projectShortDescription"
+                                  autocomplete="off"
+                                  rows="3" maxlength="250"
+                                  placeholder="Racconta la tua idea in poche parole..."
+                                  required></textarea>
+
+                        <small><span id="shortCount">0</span>/250 caratteri</small>
+                        <span class="field-error" aria-live="polite"></span>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="projectDescription">
+                            Racconta il tuo progetto *
+                        </label>
+
+                        <textarea id="projectDescription" name="projectDescription"
+                                  autocomplete="off"
+                                  rows="8" maxlength="3000"
+                                  placeholder="Qual è il problema che vuoi risolvere? Qual è la tua soluzione? ..."
+                                  required></textarea>
+
+                        <small><span id="descriptionCount">0</span>/3000 caratteri</small>
+                        <span class="field-error" aria-live="polite"></span>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="projectImpact">Come verranno utilizzati i fondi?</label>
+                        <textarea id="projectImpact" name="projectImpact"
+                                  autocomplete="off" rows="4"
+                                  placeholder="Quali cambiamenti porterà il tuo progetto con il ricavato?"></textarea>
+                    </div>
+
+                </div>
+
+                <!-- STEP 4 -->
+
+                <div class="wizard-panel" data-panel="3">
+
+                    <div class="field-group">
+                        <label for="projectImage">Immagine di copertina</label>
+
+                        <input type="file" id="projectImage" name="projectImage"
+                               autocomplete="off"
+                               accept="image/png,image/jpeg,image/webp">
+
+                        <small>
+                            Formati ammessi: JPG, PNG e WEBP.
+                            Dimensione massima: 2 MB.
+                        </small>
+
+                        <div class="image-preview" id="imagePreview">
+                            <span aria-hidden="true">📷</span>
+                            <p>L'anteprima della tua immagine apparirà qui.</p>
+                        </div>
+
+                        <button type="button" class="remove-image"
+                                id="removeImage" hidden>
+                            Rimuovi immagine
+                        </button>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="projectWebsite">Sito web o link esterno</label>
+                        <input type="url" id="projectWebsite" name="projectWebsite"
+                               autocomplete="url"
+                               placeholder="https://...">
+                    </div>
+
+                </div>
+
+                <!-- STEP 5 -->
+
+                <div class="wizard-panel" data-panel="4">
+
+                    <div class="review-notice">
+                        <span aria-hidden="true">✓</span>
+                        <div>
+                            <strong>Ci siamo quasi!</strong>
+                            <p>Controlla le informazioni prima di inviare il progetto.</p>
+                        </div>
+                    </div>
+
+                    <div id="projectReview" class="project-review"></div>
+
+                    <div class="review-checkbox">
+                        <input type="checkbox" id="confirmProject" name="confirmProject" autocomplete="off">
+                        <label for="confirmProject">
+                            Confermo che le informazioni inserite sono corrette
+                            e che il progetto rispetta le condizioni di utilizzo. <strong>*</strong>
+                        </label>
+                    </div>
+
+                    <p class="review-error" id="confirmError" aria-live="polite"></p>
+
+                </div>
+
+                <!-- NAVIGAZIONE -->
+
+                <div class="wizard-actions">
+
+                    <button type="button" id="previousStep"
+                            class="wizard-back" hidden>
+                        <span aria-hidden="true">←</span> Indietro
+                    </button>
+
+                    <span class="required-note">* Campi obbligatori</span>
+
+                    <button type="button" id="nextStep"
+                            class="btn primary-btn">
+                        Continua <span aria-hidden="true">→</span>
+                    </button>
+
+                    <button type="submit" id="submitProject"
+                            class="btn primary-btn" hidden>
+                        Invia progetto <span aria-hidden="true">↗</span>
+                    </button>
+
+                </div>
+
+                <p class="form-message" id="formMessage"
+                   aria-live="polite"></p>
+
+            </form>
+
+        </section>
+
+    </div>
+
+</main>
+
+<footer class="footer-simple">
+    © 2026 UniTogether · Privacy · Condizioni d'uso
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniTogether - Home</title>
+    <link rel="stylesheet" href="../stile/stile.css">
+    <script src="../js/app.js" defer></script>
+    <script src="../dati/progetti-dati.js" defer></script>
+    <script src="../js/home.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+    <a class="logo" href="index.html">UniTogether</a>
+
+    <button class="menu-toggle" id="menuToggle"
+            type="button"
+            aria-label="Apri menu di navigazione"
+            aria-expanded="false"
+            aria-controls="mainNav">
+        <span aria-hidden="true">☰</span>
+    </button>
+
+    <nav id="mainNav" aria-label="Menu principale">
+        <div class="language-selector">
+            <label for="languageSelect" class="sr-only">Seleziona lingua</label>
+            <select id="languageSelect" name="language" autocomplete="language" onchange="cambiaLinguaGoogle(this.value)" aria-label="Seleziona lingua">
+                <option value="it">🇮🇹 IT</option>
+                <option value="en">🇬🇧 EN</option>
+                <option value="es">🇪🇸 ES</option>
+                <option value="fr">🇫🇷 FR</option>
+                <option value="de">🇩🇪 DE</option>
+            </select>
+        </div>
+
+        <!-- Contenitore nascosto per Google Translate ignorato dagli screen reader -->
+        <div id="google_translate_element" hidden aria-hidden="true"></div>
+
+        <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Attiva modalità scura"
+                aria-pressed="false">
+            <span aria-hidden="true">🌙</span>
+        </button>
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="progetti.html">Progetti</a>
+        <a href="come-funziona.html">Come funziona</a>
+
+        <div class="partner-dropdown">
+            <button class="partner-btn" id="partnerBtn" type="button" aria-expanded="false" aria-controls="partnerMenu">
+                Partner <span aria-hidden="true">▾</span>
+            </button>
+            <div class="partner-menu" id="partnerMenu">
+                <div class="partner-item">
+                    <button class="submenu-btn" type="button" aria-expanded="false">Banche <span aria-hidden="true">›</span></button>
+                    <div class="partner-submenu">
+                        <a href="errore.html">Banca 1</a>
+                        <a href="errore.html">Banca 2</a>
+                        <a href="errore.html">Banca 3</a>
+                    </div>
+                </div>
+                <div class="partner-item">
+                    <button class="submenu-btn" type="button" aria-expanded="false">Enti Pubblici <span aria-hidden="true">›</span></button>
+                    <div class="partner-submenu">
+                        <a href="errore.html">Ente pubblico 1</a>
+                        <a href="errore.html">Ente pubblico 2</a>
+                        <a href="errore.html">Ente pubblico 3</a>
+                    </div>
+                </div>
+                <div class="partner-item">
+                    <button class="submenu-btn" type="button" aria-expanded="false">Fondazioni <span aria-hidden="true">›</span></button>
+                    <div class="partner-submenu">
+                        <a href="errore.html">Fondazione 1</a>
+                        <a href="errore.html">Fondazione 2</a>
+                        <a href="errore.html">Fondazione 3</a>
+                    </div>
+                </div>
+                <div class="partner-item">
+                    <button class="submenu-btn" type="button" aria-expanded="false">Università <span aria-hidden="true">›</span></button>
+                    <div class="partner-submenu">
+                        <a href="index.html">Università di Torino</a>
+                        <a href="errore.html">Università di Firenze</a>
+                        <a href="errore.html">Università Bocconi</a>
+                        <a href="errore.html">Politecnico di Torino</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="aggiungi.html">Lancia un progetto <span aria-hidden="true">↗</span></a>
+        <a href="login.html">Accedi</a>
+    </nav>
+</header>
+
+<main id="mainContent">
+    <section class="hero">
+        <div class="hero-text">
+            <p class="eyebrow">PIATTAFORMA DI CROWDFUNDING UNIVERSITARIO</p>
+            <h1>Il futuro si<br>costruisce <span>insieme.</span></h1>
+            <p>
+                UniTogether è lo spazio di <strong><abbr title="Raccolta collettiva e collaborativa di fondi, effettuata attraverso la rete, aperta a tutti coloro che decidono di finanziare progetti innovativi e imprese appena costituite." data-tooltip="Raccolta collettiva e collaborativa di fondi, effettuata attraverso la rete, aperta a tutti coloro che decidono di finanziare progetti innovativi e imprese appena costituite.">crowdfunding</abbr></strong> dove le idee nate in ambito universitario e territoriale trovano il sostegno economico della community. Dona per far crescere i progetti in cui credi o avvia la tua raccolta fondi per trasformarli in realtà.
+            </p>
+
+            <div class="hero-actions">
+                <a href="progetti.html" class="btn primary-btn">Scopri i progetti <span aria-hidden="true">↗</span></a>
+                <a href="come-funziona.html" class="btn secondary-btn">Come funziona</a>
+            </div>
+
+            <div class="statistics">
+                <div><strong id="totalRaised">—</strong><small>Fondi raccolti</small></div>
+                <div><strong id="totalProjects">—</strong><small>Campagne pubblicate</small></div>
+                <div><strong id="totalSupporters">—</strong><small>Sostenitori</small></div>
+            </div>
+        </div>
+
+        <div class="hero-illustration">
+            <img src="../img/logo_unito.png" class="responsive-logo" alt="Logo Università di Torino">
+        </div>
+    </section>
+
+    <section class="container section crowdfunding-section">
+        <div class="section-title">
+            <div>
+                <p class="eyebrow">SOSTEGNO COLLETTIVO</p>
+                <h2>Il valore del <span>crowdfunding.</span></h2>
+            </div>
+        </div>
+
+        <div class="feature-grid">
+            <article class="card">
+                <h3>Finanziamento dal basso</h3>
+                <p>Ogni progetto viene sostenuto direttamente da studenti, docenti, enti partner e cittadini: anche un piccolo contributo aiuta a raggiungere l'obiettivo economico prefissato.</p>
+            </article>
+            <article class="card">
+                <h3>Obiettivi chiari e trasparenti</h3>
+                <p>Ogni campagna mostra in tempo reale il budget richiesto, i fondi già raccolti, la percentuale di avanzamento e i giorni rimanenti alla scadenza.</p>
+            </article>
+            <article class="card">
+                <h3>Impatto reale sulla comunità</h3>
+                <p>Dalla ricerca tecnologica alla sostenibilità ambientale e sociale, raccogliamo fondi per iniziative capaci di generare un cambiamento concreto sul territorio.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="projects-section">
+        <div class="section-title">
+            <div>
+                <p class="eyebrow">CAMPAGNE DI RACCOLTA FONDI ATTIVE</p>
+                <h2>Progetti da <span>far crescere.</span></h2>
+            </div>
+            <a href="progetti.html" class="btn dark-btn">Tutti i progetti <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <!-- Le prime tre schede vengono generate automaticamente dal JSON. -->
+        <div class="project-grid" id="homeProjectGrid" aria-live="polite">
+            <p>Caricamento progetti...</p>
+        </div>
+    </section>
+
+    <section class="call-to-action">
+        <div>
+            <p>HAI UN'IDEA DA FINANZIARE?</p>
+            <h2>Lancia la tua campagna di crowdfunding.</h2>
+            <p>Presenta il tuo progetto, definisci il budget necessario e coinvolgi le persone che possono aiutarti a realizzarlo.</p>
+        </div>
+        <a href="aggiungi.html" class="btn dark-btn">Lancia un progetto <span aria-hidden="true">↗</span></a>
+    </section>
+</main>
+
+<footer class="footer-simple">
+    © 2026 UniTogether · Privacy · Condizioni d'uso
+</footer>
+
+</body>
+</html>

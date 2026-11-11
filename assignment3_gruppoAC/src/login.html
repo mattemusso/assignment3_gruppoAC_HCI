@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | UniTogether</title>
+    <link rel="stylesheet" href="../stile/stile.css">
+    <style>
+        /* Previene qualsiasi overflow orizzontale a 320px per il criterio WCAG 1.4.10 (Reflow) */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        .login-layout, .login-card, .login-types {
+            max-width: 100%;
+            box-sizing: border-box;
+            flex-wrap: wrap;
+        }
+    </style>
+    <script src="../js/app.js" defer></script>
+</head>
+<body class="auth-page">
+<a href="#mainContent" class="skip-link">Salta al contenuto principale</a>
+
+<header class="site-header">
+    <a class="logo" href="index.html">UniTogether</a>
+
+    <button class="menu-toggle" id="menuToggle"
+            type="button"
+            aria-label="Apri menu di navigazione"
+            aria-expanded="false"
+            aria-controls="mainNav">
+        <span aria-hidden="true">☰</span>
+    </button>
+
+    <nav id="mainNav" aria-label="Menu principale">
+        <div class="language-selector">
+            <label for="languageSelect" class="sr-only">Seleziona lingua</label>
+            <select id="languageSelect" name="language" autocomplete="language" onchange="cambiaLinguaGoogle(this.value)" aria-label="Seleziona lingua">
+                <option value="it">🇮🇹 IT</option>
+                <option value="en">🇬🇧 EN</option>
+                <option value="es">🇪🇸 ES</option>
+                <option value="fr">🇫🇷 FR</option>
+                <option value="de">🇩🇪 DE</option>
+            </select>
+        </div>
+
+        <!-- Contenitore nascosto per Google Translate ignorato dagli screen reader -->
+        <div id="google_translate_element" hidden aria-hidden="true"></div>
+
+        <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Attiva modalità scura"
+                aria-pressed="false">
+            <span aria-hidden="true">🌙</span>
+        </button>
+        <a href="index.html">Home</a>
+        <a href="progetti.html">Progetti</a>
+        <a href="come-funziona.html">Come funziona</a>
+
+        <div class="partner-dropdown">
+            <button class="partner-btn" id="partnerBtn" type="button" aria-expanded="false" aria-controls="partnerMenu">
+                Partner <span aria-hidden="true">▾</span>
+            </button>
+            <div class="partner-menu" id="partnerMenu">
+                <div class="partner-item">
+                    <button class="submenu-btn" type="button" aria-expanded="false">Banche <span aria-hidden="true">›</span></button>
+                    <div class="partner-submenu">
+                        <a href="errore.html">Banca 1</a>
+                        <a href="errore.html">Banca 2</a>
+                        <a href="errore.html">Banca 3</a>
+                    </div>
+                </div>
+                <div class="partner-item">
+                    <button class="submenu-btn" type="button" aria-expanded="false">Enti Pubblici <span aria-hidden="true">›</span></button>
+                    <div class="partner-submenu">
+                        <a href="errore.html">Ente pubblico 1</a>
+                        <a href="errore.html">Ente pubblico 2</a>
+                        <a href="errore.html">Ente pubblico 3</a>
+                    </div>
+                </div>
+                <div class="partner-item">
+                    <button class="submenu-btn" type="button" aria-expanded="false">Fondazioni <span aria-hidden="true">›</span></button>
+                    <div class="partner-submenu">
+                        <a href="errore.html">Fondazione 1</a>
+                        <a href="errore.html">Fondazione 2</a>
+                        <a href="errore.html">Fondazione 3</a>
+                    </div>
+                </div>
+                <div class="partner-item">
+                    <button class="submenu-btn" type="button" aria-expanded="false">Università <span aria-hidden="true">›</span></button>
+                    <div class="partner-submenu">
+                        <a href="index.html">Università di Torino</a>
+                        <a href="errore.html">Università di Firenze</a>
+                        <a href="errore.html">Università Bocconi</a>
+                        <a href="errore.html">Politecnico di Torino</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="aggiungi.html">Lancia un progetto <span aria-hidden="true">↗</span></a>
+        <a href="login.html" aria-current="page">Accedi</a>
+    </nav>
+</header>
+
+<main id="mainContent" class="login-layout">
+
+    <section class="login-intro">
+        <p class="eyebrow">BENVENUTO IN UNITOGETHER</p>
+        <h1>Le grandi idee<br>iniziano <span>insieme.</span></h1>
+        <p>
+            Accedi al tuo spazio personale per lanciare un progetto e portare avanti
+            quelli in cui credi.
+        </p>
+    </section>
+
+    <section class="login-card">
+
+        <p class="eyebrow">IL TUO SPAZIO PERSONALE</p>
+        <h2 id="loginTitle">Login progettista</h2>
+        <p id="loginDescription">
+            Accedi per gestire i tuoi progetti e le tue campagne.
+        </p>
+
+        <div class="login-types" role="group" aria-label="Seleziona il tuo ruolo">
+            <button type="button"
+                    class="role active"
+                    data-role="progettista"
+                    aria-pressed="true">
+                Progettista
+            </button>
+
+            <button type="button"
+                    class="role"
+                    data-role="partner"
+                    aria-pressed="false">
+                Partner
+            </button>
+
+            <button type="button"
+                    class="role"
+                    data-role="manager"
+                    aria-pressed="false">
+                Campaign manager
+            </button>
+        </div>
+
+        <form id="loginForm" novalidate>
+
+            <div class="form-group">
+                <label for="loginUser">Username o email *</label>
+                <input type="text"
+                       id="loginUser"
+                       name="username"
+                       placeholder="Inserisci username o email"
+                       autocomplete="username"
+                       required>
+                <small class="error" aria-live="polite"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="loginPassword">Password *</label>
+
+                <div class="password-box">
+                    <input type="password"
+                           id="loginPassword"
+                           name="password"
+                           placeholder="Inserisci la password"
+                           autocomplete="current-password"
+                           required>
+
+                    <button type="button"
+                            class="show-password"
+                            data-target="loginPassword"
+                            aria-label="Mostra password">
+                        Mostra
+                    </button>
+                </div>
+
+                <small class="error" aria-live="polite"></small>
+            </div>
+
+            <div class="login-options">
+                <div class="remember">
+                    <input type="checkbox" id="remember" name="remember" autocomplete="off">
+                    <label for="remember">Ricordami</label>
+                </div>
+
+                <a href="errore.html" id="forgotPassword">
+                    Password dimenticata?
+                </a>
+            </div>
+
+            <button type="submit" class="btn primary-btn">
+                <span id="loginButtonText">Accedi come progettista</span>
+                <span aria-hidden="true">↗</span>
+            </button>
+
+            <p id="loginMessage" class="form-message"
+               aria-live="polite"></p>
+
+        </form>
+
+        <div class="separator"><span aria-hidden="true">oppure</span></div>
+
+        <p class="register-link">
+            Non hai ancora un account?
+            <a href="registrazione.html">Registrati</a>
+        </p>
+
+    </section>
+
+</main>
+
+<footer class="footer-simple">
+    © 2026 UniTogether · Privacy · Condizioni d'uso
+</footer>
+
+</body>
+</html>
