@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dettaglio progetto | UniTogether</title>
+  <link rel="stylesheet" href="../stile/stile.css">
+  <script src="../js/app.js" defer></script>
+  <script src="../dati/progetti-dati.js" defer></script>
+  <script src="../js/progetto.js" defer></script>
+</head>
+<body>
+<a href="#mainContent" class="skip-link">Salta al contenuto principale</a>
+
+<header class="site-header">
+  <a class="logo" href="index.html">UniTogether</a>
+
+  <button class="menu-toggle" id="menuToggle"
+          type="button"
+          aria-label="Apri menu di navigazione"
+          aria-expanded="false"
+          aria-controls="mainNav">
+    <span aria-hidden="true">☰</span>
+  </button>
+
+  <nav id="mainNav" aria-label="Menu principale">
+    <div class="language-selector">
+      <label for="languageSelect" class="sr-only">Seleziona lingua</label>
+      <select id="languageSelect" name="language" autocomplete="language" onchange="cambiaLinguaGoogle(this.value)" aria-label="Seleziona lingua">
+        <option value="it">🇮🇹 IT</option>
+        <option value="en">🇬🇧 EN</option>
+        <option value="es">🇪🇸 ES</option>
+        <option value="fr">🇫🇷 FR</option>
+        <option value="de">🇩🇪 DE</option>
+      </select>
+    </div>
+
+    <!-- Contenitore nascosto per Google Translate ignorato dagli screen reader -->
+    <div id="google_translate_element" hidden aria-hidden="true"></div>
+
+    <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Attiva modalità scura"
+            aria-pressed="false">
+      <span aria-hidden="true">🌙</span>
+    </button>
+    <a href="index.html">Home</a>
+    <a href="progetti.html" aria-current="page">Progetti</a>
+    <a href="come-funziona.html">Come funziona</a>
+
+    <div class="partner-dropdown">
+      <button class="partner-btn" id="partnerBtn" type="button" aria-expanded="false" aria-controls="partnerMenu">
+        Partner <span aria-hidden="true">▾</span>
+      </button>
+      <div class="partner-menu" id="partnerMenu">
+        <div class="partner-item">
+          <button class="submenu-btn" type="button" aria-expanded="false">Banche <span aria-hidden="true">›</span></button>
+          <div class="partner-submenu">
+            <a href="errore.html">Banca 1</a>
+            <a href="errore.html">Banca 2</a>
+            <a href="errore.html">Banca 3</a>
+          </div>
+        </div>
+        <div class="partner-item">
+          <button class="submenu-btn" type="button" aria-expanded="false">Enti Pubblici <span aria-hidden="true">›</span></button>
+          <div class="partner-submenu">
+            <a href="errore.html">Ente pubblico 1</a>
+            <a href="errore.html">Ente pubblico 2</a>
+            <a href="errore.html">Ente pubblico 3</a>
+          </div>
+        </div>
+        <div class="partner-item">
+          <button class="submenu-btn" type="button" aria-expanded="false">Fondazioni <span aria-hidden="true">›</span></button>
+          <div class="partner-submenu">
+            <a href="errore.html">Fondazione 1</a>
+            <a href="errore.html">Fondazione 2</a>
+            <a href="errore.html">Fondazione 3</a>
+          </div>
+        </div>
+        <div class="partner-item">
+          <button class="submenu-btn" type="button" aria-expanded="false">Università <span aria-hidden="true">›</span></button>
+          <div class="partner-submenu">
+            <a href="index.html">Università di Torino</a>
+            <a href="errore.html">Università di Firenze</a>
+            <a href="errore.html">Università Bocconi</a>
+            <a href="errore.html">Politecnico di Torino</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="aggiungi.html">Lancia un progetto <span aria-hidden="true">↗</span></a>
+    <a href="login.html">Accedi</a>
+  </nav>
+</header>
+
+<nav class="breadcrumbs" aria-label="Percorso">
+  <a href="index.html">Home</a><span aria-hidden="true">&gt;</span>
+  <a href="progetti.html">Progetti</a><span aria-hidden="true">&gt;</span>
+  <span id="breadcrumbProjectTitle" aria-current="page">Nome progetto</span>
+</nav>
+
+<main id="mainContent" class="container">
+  <p><a href="progetti.html" class="btn"><span aria-hidden="true">←</span> Torna ai progetti</a></p>
+  <p id="detailError" role="alert" hidden>Il progetto richiesto non è stato trovato o non è stato possibile caricarlo. <a href="progetti.html">Torna all'elenco dei progetti</a>.</p>
+
+  <section class="project-detail" id="projectDetail" hidden>
+    <div>
+      <div class="project-image project-image-green detail-image" id="detailImage">
+        <span id="projectCategory">Categoria</span>
+      </div>
+
+      <!-- 2. SOTTOTITOLO -->
+      <p id="projectSubtitle" style="font-size: 1.15rem; color: var(--muted); font-weight: 500; margin-top: -8px; margin-bottom: 24px;"></p>
+
+      <!-- 1. TITOLO (testo segnaposto per validazione statica, sovrascritto da JS) -->
+      <h1 id="projectTitle">Dettaglio del progetto</h1>
+
+      <div id="projectWebsiteContainer" hidden>
+        <a id="projectWebsite" class="back-btn" href="#" target="_blank" rel="noopener noreferrer">
+          Vai al sito
+        </a>
+      </div>
+
+      <!-- 3. LA NOSTRA IDEA -->
+      <h2>La nostra idea</h2>
+      <p id="projectIdea"></p>
+
+      <!-- 4. DESCRIZIONE COMPLETA -->
+      <h2>Descrizione completa</h2>
+      <p id="projectDescription"></p>
+
+      <!-- 5. CHI C'È DIETRO -->
+      <h2>Chi c'è dietro</h2>
+      <p><span id="projectTeam"></span></p>
+
+      <!-- 6. IMPATTO -->
+      <div id="impactSection">
+        <h2>Come verranno utilizzati i fondi?</h2>
+        <p id="projectImpact"></p>
+      </div>
+    </div>
+
+    <aside class="project-summary card" aria-label="Riepilogo raccolta fondi">
+      <p class="eyebrow">Obiettivo di raccolta</p>
+      <h2 id="raisedAmount">0 €</h2>
+      <p>raccolti su <strong id="targetAmount">0 €</strong></p>
+      <div class="progress-track" aria-hidden="true"><span id="progressBar"></span></div>
+      <p id="progressLabel" aria-live="polite"></p>
+      <p><strong id="supporterCount">0</strong> sostenitori</p>
+      <p><strong id="giorniMancanti">0</strong> giorni al termine</p>
+      <p id="projectStatus"></p>
+      <button class="btn" id="supportButton" type="button">Sostieni il progetto</button>
+      <p class="small-text">La raccolta e i dati mostrati sono dimostrativi.</p>
+
+      <!-- Form di donazione -->
+      <div id="donationFormContainer" style="display: none; margin-top: 15px; padding: 20px; background: #f9f9f9; border-radius: 8px; border: 1px solid #ddd;">
+        <h3 style="margin-bottom: 10px;">Sostieni questo progetto</h3>
+        <form id="donationForm">
+          <div class="form-group" style="margin-bottom: 10px;">
+            <label for="donationAmount" style="display: block; margin-bottom: 5px; font-size: 0.875rem;">Seleziona o inserisci l'importo (€):</label>
+            <div class="preset-amounts" style="display: flex; gap: 5px; margin-bottom: 10px;">
+              <button type="button" class="amount-btn" data-amount="10" style="flex:1; padding: 6px;">10€</button>
+              <button type="button" class="amount-btn" data-amount="25" style="flex:1; padding: 6px;">25€</button>
+              <button type="button" class="amount-btn" data-amount="50" style="flex:1; padding: 6px;">50€</button>
+              <button type="button" class="amount-btn" data-amount="100" style="flex:1; padding: 6px;">100€</button>
+            </div>
+            <input type="number" id="donationAmount" name="donationAmount" autocomplete="off" min="1" placeholder="Altra cifra (€)" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+          </div>
+          <div class="form-group" style="margin-bottom: 10px; font-size: 0.875rem;">
+            <input type="checkbox" id="anonimoDonation" name="anonimoDonation" autocomplete="off">
+            <label for="anonimoDonation">Dona in modo anonimo</label>
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%; padding: 10px; cursor: pointer;">Conferma Donazione</button>
+          <p id="donationMessage" style="margin-top: 10px; font-weight: bold; font-size: 0.875rem; text-align: center;" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <p id="supportMessage" aria-live="polite"></p>
+    </aside>
+  </section>
+</main>
+
+<footer class="footer-simple">
+  © 2026 UniTogether · Privacy · Condizioni d'uso
+</footer>
+</body>
+</html>
