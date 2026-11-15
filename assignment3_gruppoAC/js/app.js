@@ -529,23 +529,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const LINGUA_DEFAULT = "it";
     const LINGUE = ["it", "en", "es", "fr", "de"];
 
-    // Recupera lingua salvata
     function linguaSalvata() {
         return localStorage.getItem("linguaSito") || LINGUA_DEFAULT;
     }
 
-    // Inizializza Google Translate
-    window.googleTranslateElementInit = function () {
+    function caricaScriptGoogle() {
+        if (!document.getElementById("google_translate_element")) return;
 
+        if (window.google && window.google.translate) {
+            window.googleTranslateElementInit();
+        } else if (!document.getElementById("google-translate-script")) {
+            const script = document.createElement("script");
+            script.id = "google-translate-script";
+            script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+            document.body.appendChild(script);
+        }
+    }
+
+    window.googleTranslateElementInit = function () {
         new google.translate.TranslateElement({
             pageLanguage: "it",
             includedLanguages: "it,en,es,fr,de",
             autoDisplay: false
         }, "google_translate_element");
 
-        // Ripristina la lingua
         const lingua = linguaSalvata();
-
         aggiornaMenu(lingua);
 
         if (lingua !== "it") {
@@ -553,106 +561,53 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Applica traduzione
     function applicaLingua(lang, tentativi = 40) {
-
         const select = document.querySelector(".goog-te-combo");
 
         if (select) {
-
             if (select.value !== lang) {
-
                 select.value = lang;
-
-                select.dispatchEvent(
-                    new Event("change", { bubbles: true })
-                );
+                select.dispatchEvent(new Event("change", { bubbles: true }));
             }
-
         } else if (tentativi > 0) {
-
             setTimeout(function () {
                 applicaLingua(lang, tentativi - 1);
-            }, 500);
+            }, 300);
         }
     }
 
-    // Aggiorna menu
     function aggiornaMenu(lang) {
-
         const menu = document.getElementById("languageSelect");
-
         if (menu) {
             menu.value = lang;
         }
     }
 
-    // Cambio lingua manuale
     window.cambiaLinguaGoogle = function (lang) {
-
         if (!LINGUE.includes(lang)) return;
 
         localStorage.setItem("linguaSito", lang);
-
         aggiornaMenu(lang);
 
         if (lang === "it") {
-
-            // Rimuove il cookie di Google Translate
-            document.cookie =
-                "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
-
-            document.cookie =
-                "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=" + location.hostname;
-
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=" + location.hostname;
             location.reload();
-
             return;
         }
 
-        // Imposta lingua nel cookie
-        document.cookie =
-            "googtrans=/it/" + lang + "; path=/; SameSite=Lax";
-
+        document.cookie = "googtrans=/it/" + lang + "; path=/; SameSite=Lax";
+        caricaScriptGoogle();
         applicaLingua(lang);
     };
 
-    // Caricamento automatico ad ogni pagina
-    function avviaGoogleTranslate() {
-
+    document.addEventListener("DOMContentLoaded", function () {
         const lingua = linguaSalvata();
-
         aggiornaMenu(lingua);
-
-        if (!document.getElementById("google_translate_element")) {
-            return;
+        if (lingua !== "it") {
+            caricaScriptGoogle();
         }
-
-        if (window.google && window.google.translate) {
-
-            window.googleTranslateElementInit();
-
-        } else if (!document.getElementById("google-translate-script")) {
-
-            const script = document.createElement("script");
-
-            script.id = "google-translate-script";
-
-            script.src =
-                "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-
-            document.body.appendChild(script);
-        }
-    }
-
-    if (document.readyState === "loading") {
-
-        document.addEventListener("DOMContentLoaded", avviaGoogleTranslate);
-
-    } else {
-
-        avviaGoogleTranslate();
-    }
+    });
 
 })();
 

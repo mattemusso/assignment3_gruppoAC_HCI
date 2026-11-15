@@ -96,18 +96,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             const image = document.createElement("div");
 
             if (project.image) {
-                image.className = "project-image";
-                image.style.backgroundImage = `url("${project.image}")`;
-                image.style.backgroundSize = "cover";
-                image.style.backgroundPosition = "center";
-                image.style.backgroundRepeat = "no-repeat";
-                image.setAttribute("role", "img");
-                image.setAttribute("aria-label", `Copertina di ${project.title}`);
+                image.className = "project-image has-cover";
+                const imgEl = document.createElement("img");
+                imgEl.src = project.image;
+                imgEl.alt = `Copertina di ${project.title}`;
+                imgEl.className = "cover-img";
+                image.appendChild(imgEl);
             } else {
                 image.className = `project-image project-image-${visual}`;
-                image.setAttribute("role", "img");
-                image.setAttribute("aria-label", `Progetto ${project.title}`);
-
                 const categoryLabel = document.createElement("span");
                 categoryLabel.textContent = category;
                 image.appendChild(categoryLabel);
@@ -120,23 +116,20 @@ document.addEventListener("DOMContentLoaded", async () => {
             eyebrow.className = "eyebrow";
             eyebrow.textContent = project.eyebrow || project.subtitle || category;
 
-            // 1. TITOLO
-            const title = document.createElement("h2");
+            const title = document.createElement("h3");
             title.textContent = project.title || "Progetto senza titolo";
 
-            // 2. DESCRIZIONE BREVE
             const description = document.createElement("p");
             description.textContent = project.shortDescription || project.description || "";
 
-            // 3. BARRA
             const progress = document.createElement("div");
             progress.className = "progress-track";
+            progress.setAttribute("aria-hidden", "true");
 
             const progressBar = document.createElement("span");
-            progressBar.style.width = `${barWidth}%`;
+            progressBar.className = `w-${barWidth}`;
             progress.appendChild(progressBar);
 
-            // 4. SOLDI
             const amounts = document.createElement("p");
             amounts.className = "funding";
 
@@ -148,12 +141,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 document.createTextNode(` raccolti su ${euro.format(target)}`)
             );
 
-            // 5. PERCENTUALE
             const percentSmall = document.createElement("small");
-            percentSmall.style.display = "block";
+            percentSmall.className = "percent-label";
             percentSmall.textContent = `${percentage}% dell'obiettivo raggiunto`;
 
-            // 6. BOTTONE DETTAGLIO
             const link = document.createElement("a");
             link.href = `progetto.html?id=${encodeURIComponent(project.id)}`;
             link.className = "btn primary-btn";
