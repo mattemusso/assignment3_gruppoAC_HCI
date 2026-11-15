@@ -2061,3 +2061,48 @@ html[data-theme="dark"] .wizard-back {
     width: 100%;
     gap: 1.5rem;
 }
+
+@media (max-width: 600px) {
+    .add-project-layout {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .wizard-sidebar,
+    .wizard-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .field-row {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .field-group {
+        width: 100%;
+        min-width: 0;
+    }
+
+    input,
+    textarea,
+    select {
+        max-width: 100%;
+    }
+}
+
+.wizard-step.active {
+    background-color: #e6f2eb;
+    color: #1a1e17;
+}
+
+.wizard-step.active strong {
+    color: #1a1e17;
+}
+
+.wizard-step.active small {
+    color: #343a32;
+}
