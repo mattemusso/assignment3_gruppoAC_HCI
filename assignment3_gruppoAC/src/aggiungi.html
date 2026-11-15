@@ -58,16 +58,16 @@
         <div class="language-selector">
             <label for="languageSelect" class="sr-only">Seleziona lingua</label>
             <select id="languageSelect" name="language" autocomplete="language" onchange="cambiaLinguaGoogle(this.value)" aria-label="Seleziona lingua">
-                <option value="it">🇮🇹 IT</option>
-                <option value="en">🇬🇧 EN</option>
-                <option value="es">🇪🇸 ES</option>
-                <option value="fr">🇫🇷 FR</option>
-                <option value="de">🇩🇪 DE</option>
+                <option value="it">🇮🇹 Italiano</option>
+                <option value="en">🇬🇧 English</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="de">🇩🇪 Deutsch</option>
             </select>
         </div>
 
         <!-- Contenitore nascosto per Google Translate ignorato dagli screen reader -->
-        <div id="google_translate_element" hidden aria-hidden="true"></div>
+        <div id="google_translate_element" hidden></div>
 
         <button
                 id="themeToggle"
@@ -291,7 +291,7 @@
 
                             <label for="catAmbiente" class="category-option green">
                                 <input type="radio" id="catAmbiente" name="category"
-                                       value="ambiente" autocomplete="off" required>
+                                       value="ambiente" required>
                                 <span aria-hidden="true">🌱</span>
                                 <strong>Ambiente</strong>
                                 <small>Sostenibilità e natura</small>
@@ -299,7 +299,7 @@
 
                             <label for="catCultura" class="category-option purple">
                                 <input type="radio" id="catCultura" name="category"
-                                       value="cultura" autocomplete="off">
+                                       value="cultura">
                                 <span aria-hidden="true">🎨</span>
                                 <strong>Cultura</strong>
                                 <small>Arte e conoscenza</small>
@@ -307,7 +307,7 @@
 
                             <label for="catTecnologia" class="category-option blue">
                                 <input type="radio" id="catTecnologia" name="category"
-                                       value="tecnologia" autocomplete="off">
+                                       value="tecnologia">
                                 <span aria-hidden="true">💡</span>
                                 <strong>Tecnologia</strong>
                                 <small>Innovazione e ricerca</small>
@@ -315,7 +315,7 @@
 
                             <label for="catSociale" class="category-option orange">
                                 <input type="radio" id="catSociale" name="category"
-                                       value="sociale" autocomplete="off">
+                                       value="sociale">
                                 <span aria-hidden="true">🤝</span>
                                 <strong>Sociale</strong>
                                 <small>Comunità e inclusione</small>
@@ -407,7 +407,6 @@
                         <label for="projectImage">Immagine di copertina</label>
 
                         <input type="file" id="projectImage" name="projectImage"
-                               autocomplete="off"
                                accept="image/png,image/jpeg,image/webp">
 
                         <small>
@@ -450,7 +449,7 @@
                     <div id="projectReview" class="project-review"></div>
 
                     <div class="review-checkbox">
-                        <input type="checkbox" id="confirmProject" name="confirmProject" autocomplete="off">
+                        <input type="checkbox" id="confirmProject" name="confirmProject">
                         <label for="confirmProject">
                             Confermo che le informazioni inserite sono corrette
                             e che il progetto rispetta le condizioni di utilizzo. <strong>*</strong>
