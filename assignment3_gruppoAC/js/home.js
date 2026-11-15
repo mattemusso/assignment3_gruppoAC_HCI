@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             progress.setAttribute("aria-hidden", "true");
 
             const progressBar = document.createElement("span");
-            progressBar.className = `w-${barWidth}`;
+            progressBar.style.width = `${barWidth}%`;
             progress.appendChild(progressBar);
 
             const amounts = document.createElement("p");
