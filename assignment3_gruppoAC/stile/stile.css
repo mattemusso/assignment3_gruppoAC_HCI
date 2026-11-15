@@ -1633,6 +1633,7 @@ html[data-theme="dark"] .wizard-step:not(.active) .step-number {
     display: flex;
     flex-direction: column;
     gap: 0.625rem;
+    color: black;
 }
 
 .wizard-step {
@@ -1645,7 +1646,7 @@ html[data-theme="dark"] .wizard-step:not(.active) .step-number {
     border: 0;
     border-radius: 0.75rem;
     background-color: #ffffff;
-    color: var(--text);
+    color: black;
     cursor: pointer;
 }
 
@@ -1687,7 +1688,7 @@ html[data-theme="dark"] .wizard-step.active {
 
 .wizard-step small {
     margin-top: 0.25rem;
-    color: var(--muted);
+    color: black;
     font-size: 0.76rem;
 }
 
@@ -2092,19 +2093,6 @@ html[data-theme="dark"] .wizard-back {
     select {
         max-width: 100%;
     }
-}
-
-.wizard-step.active {
-    background-color: #e6f2eb;
-    color: #1a1e17;
-}
-
-.wizard-step.active strong {
-    color: #1a1e17;
-}
-
-.wizard-step.active small {
-    color: #343a32;
 }
 
 html[data-theme="dark"] .wizard-step.active {
