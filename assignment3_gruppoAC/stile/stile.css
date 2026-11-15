@@ -2049,3 +2049,15 @@ html[data-theme="dark"] .wizard-back {
     background-color: #ffffff !important;
     color: #1a1e17 !important;
 }
+
+.hero:has(.feature-grid) {
+    grid-template-columns: 1fr;
+    align-items: start;
+}
+
+.hero .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    gap: 1.5rem;
+}
