@@ -284,47 +284,49 @@
 
                 <div class="wizard-panel" data-panel="1">
 
-                    <div class="field-group" role="radiogroup" aria-labelledby="categoryGroupLabel">
-                        <span id="categoryGroupLabel" class="group-label">Categoria del progetto *</span>
+                    <fieldset class="field-group fieldset-reset">
 
-                        <div class="category-options">
+    <legend class="group-label">Categoria del progetto *</legend>
 
-                            <label for="catAmbiente" class="category-option green">
-                                <input type="radio" id="catAmbiente" name="category"
-                                       value="ambiente" required>
-                                <span aria-hidden="true">🌱</span>
-                                <strong>Ambiente</strong>
-                                <small>Sostenibilità e natura</small>
-                            </label>
+    <div class="category-options">
 
-                            <label for="catCultura" class="category-option purple">
-                                <input type="radio" id="catCultura" name="category"
-                                       value="cultura">
-                                <span aria-hidden="true">🎨</span>
-                                <strong>Cultura</strong>
-                                <small>Arte e conoscenza</small>
-                            </label>
+        <label for="catAmbiente" class="category-option green">
+            <input type="radio" id="catAmbiente" name="category"
+                   value="ambiente" autocomplete="off" required>
+            <span aria-hidden="true">🌱</span>
+            <strong>Ambiente</strong>
+            <small>Sostenibilità e natura</small>
+        </label>
 
-                            <label for="catTecnologia" class="category-option blue">
-                                <input type="radio" id="catTecnologia" name="category"
-                                       value="tecnologia">
-                                <span aria-hidden="true">💡</span>
-                                <strong>Tecnologia</strong>
-                                <small>Innovazione e ricerca</small>
-                            </label>
+        <label for="catCultura" class="category-option purple">
+            <input type="radio" id="catCultura" name="category"
+                   value="cultura" autocomplete="off">
+            <span aria-hidden="true">🎨</span>
+            <strong>Cultura</strong>
+            <small>Arte e conoscenza</small>
+        </label>
 
-                            <label for="catSociale" class="category-option orange">
-                                <input type="radio" id="catSociale" name="category"
-                                       value="sociale">
-                                <span aria-hidden="true">🤝</span>
-                                <strong>Sociale</strong>
-                                <small>Comunità e inclusione</small>
-                            </label>
+        <label for="catTecnologia" class="category-option blue">
+            <input type="radio" id="catTecnologia" name="category"
+                   value="tecnologia" autocomplete="off">
+            <span aria-hidden="true">💡</span>
+            <strong>Tecnologia</strong>
+            <small>Innovazione e ricerca</small>
+        </label>
 
-                        </div>
+        <label for="catSociale" class="category-option orange">
+            <input type="radio" id="catSociale" name="category"
+                   value="sociale" autocomplete="off">
+            <span aria-hidden="true">🤝</span>
+            <strong>Sociale</strong>
+            <small>Comunità e inclusione</small>
+        </label>
 
-                        <span class="field-error" id="categoryError" aria-live="polite"></span>
-                    </div>
+    </div>
+
+    <span class="field-error" id="categoryError" aria-live="polite"></span>
+
+</fieldset>
 
                     <div class="field-row">
 
