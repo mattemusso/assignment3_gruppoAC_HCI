@@ -2106,3 +2106,38 @@ html[data-theme="dark"] .wizard-back {
 .wizard-step.active small {
     color: #343a32;
 }
+
+html[data-theme="dark"] .wizard-step.active {
+    background-color: #243428 !important;
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .wizard-step.active strong {
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .wizard-step.active small {
+    color: #dcdfe6 !important;
+}
+
+@media (max-width: 600px) {
+    .wizard-content {
+        padding: 1rem;
+    }
+
+    .wizard-content-header {
+        flex-wrap: wrap;
+    }
+
+    .wizard-actions {
+        flex-wrap: wrap;
+    }
+
+    .wizard-actions button {
+        max-width: 100%;
+    }
+
+    .category-options {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
