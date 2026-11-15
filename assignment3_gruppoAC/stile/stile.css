@@ -1646,7 +1646,6 @@ html[data-theme="dark"] .wizard-step:not(.active) .step-number {
     border: 0;
     border-radius: 0.75rem;
     background-color: #ffffff;
-    color: black;
     cursor: pointer;
 }
 
@@ -1688,7 +1687,6 @@ html[data-theme="dark"] .wizard-step.active {
 
 .wizard-step small {
     margin-top: 0.25rem;
-    color: black;
     font-size: 0.76rem;
 }
 
@@ -2167,4 +2165,87 @@ html[data-theme="dark"] .wizard-step.active small {
     .wizard-step small {
         display: none;
     }
+}
+
+.add-project-page,
+.add-project-layout,
+.wizard-content,
+.wizard-sidebar,
+.field-group {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.125rem;
+}
+
+.field-group input,
+.field-group textarea,
+.field-group select {
+    width: 100%;
+    max-width: 100%;
+}
+
+.category-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 600px) {
+    .add-project-page {
+        padding: 2rem 1rem;
+    }
+
+    .add-project-layout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .field-row {
+        grid-template-columns: 1fr;
+    }
+
+    .category-options {
+        grid-template-columns: 1fr;
+    }
+
+    .wizard-sidebar {
+        position: static;
+    }
+
+    .wizard-content {
+        padding: 1rem;
+    }
+
+    .wizard-content-header {
+        flex-direction: column;
+    }
+
+    .draft-status {
+        white-space: normal;
+    }
+
+    .wizard-actions {
+        flex-wrap: wrap;
+    }
+}
+
+.wizard-step {
+    color: #1a1e17;
+    background-color: #ffffff;
+}
+
+.wizard-step strong {
+    color: #1a1e17;
+}
+
+.wizard-step small {
+    color: #4a4f45;
+}
+
+.wizard-step.active {
+    background-color: #e6f2eb;
+    color: #1a1e17;
 }
