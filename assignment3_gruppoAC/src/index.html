@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UniTogether - Home</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="../stile/stile.css">
     <script src="../js/app.js" defer></script>
     <script src="../dati/progetti-dati.js" defer></script>
     <script src="../js/home.js" defer></script>
 </head>
 <body>
+<a href="#mainContent" class="skip-link">Salta al contenuto principale</a>
 
 <header class="site-header">
     <a class="logo" href="index.html">UniTogether</a>
@@ -25,7 +27,7 @@
     <nav id="mainNav" aria-label="Menu principale">
         <div class="language-selector">
             <label for="languageSelect" class="sr-only">Seleziona lingua</label>
-            <select id="languageSelect" name="language" autocomplete="language" onchange="cambiaLinguaGoogle(this.value)" aria-label="Seleziona lingua">
+            <select id="languageSelect" name="language" title="Seleziona lingua" aria-label="Seleziona lingua" autocomplete="language" onchange="cambiaLinguaGoogle(this.value)">
                 <option value="it">🇮🇹 IT</option>
                 <option value="en">🇬🇧 EN</option>
                 <option value="es">🇪🇸 ES</option>
@@ -50,12 +52,12 @@
         <a href="come-funziona.html">Come funziona</a>
 
         <div class="partner-dropdown">
-            <button class="partner-btn" id="partnerBtn" type="button" aria-expanded="false" aria-controls="partnerMenu">
+            <button class="partner-btn" id="partnerBtn" type="button" aria-label="Partner" aria-expanded="false" aria-controls="partnerMenu">
                 Partner <span aria-hidden="true">▾</span>
             </button>
             <div class="partner-menu" id="partnerMenu">
                 <div class="partner-item">
-                    <button class="submenu-btn" type="button" aria-expanded="false">Banche <span aria-hidden="true">›</span></button>
+                    <button class="submenu-btn" type="button" aria-label="Banche" aria-expanded="false">Banche <span aria-hidden="true">›</span></button>
                     <div class="partner-submenu">
                         <a href="errore.html">Banca 1</a>
                         <a href="errore.html">Banca 2</a>
@@ -63,7 +65,7 @@
                     </div>
                 </div>
                 <div class="partner-item">
-                    <button class="submenu-btn" type="button" aria-expanded="false">Enti Pubblici <span aria-hidden="true">›</span></button>
+                    <button class="submenu-btn" type="button" aria-label="Enti Pubblici" aria-expanded="false">Enti Pubblici <span aria-hidden="true">›</span></button>
                     <div class="partner-submenu">
                         <a href="errore.html">Ente pubblico 1</a>
                         <a href="errore.html">Ente pubblico 2</a>
@@ -71,7 +73,7 @@
                     </div>
                 </div>
                 <div class="partner-item">
-                    <button class="submenu-btn" type="button" aria-expanded="false">Fondazioni <span aria-hidden="true">›</span></button>
+                    <button class="submenu-btn" type="button" aria-label="Fondazioni" aria-expanded="false">Fondazioni <span aria-hidden="true">›</span></button>
                     <div class="partner-submenu">
                         <a href="errore.html">Fondazione 1</a>
                         <a href="errore.html">Fondazione 2</a>
@@ -79,7 +81,7 @@
                     </div>
                 </div>
                 <div class="partner-item">
-                    <button class="submenu-btn" type="button" aria-expanded="false">Università <span aria-hidden="true">›</span></button>
+                    <button class="submenu-btn" type="button" aria-label="Università" aria-expanded="false">Università <span aria-hidden="true">›</span></button>
                     <div class="partner-submenu">
                         <a href="index.html">Università di Torino</a>
                         <a href="errore.html">Università di Firenze</a>
@@ -96,10 +98,10 @@
 </header>
 
 <main id="mainContent">
-    <section class="hero">
+    <section class="hero" aria-labelledby="heroHeading">
         <div class="hero-text">
             <p class="eyebrow">PIATTAFORMA DI CROWDFUNDING UNIVERSITARIO</p>
-            <h1>Il futuro si<br>costruisce <span>insieme.</span></h1>
+            <h1 id="heroHeading">Il futuro si<br>costruisce <span>insieme.</span></h1>
             <p>
                 UniTogether è lo spazio di <strong><abbr title="Raccolta collettiva e collaborativa di fondi, effettuata attraverso la rete, aperta a tutti coloro che decidono di finanziare progetti innovativi e imprese appena costituite." data-tooltip="Raccolta collettiva e collaborativa di fondi, effettuata attraverso la rete, aperta a tutti coloro che decidono di finanziare progetti innovativi e imprese appena costituite.">crowdfunding</abbr></strong> dove le idee nate in ambito universitario e territoriale trovano il sostegno economico della community. Dona per far crescere i progetti in cui credi o avvia la tua raccolta fondi per trasformarli in realtà.
             </p>
@@ -121,11 +123,11 @@
         </div>
     </section>
 
-    <section class="container section crowdfunding-section">
+    <section class="container section crowdfunding-section" aria-labelledby="crowdfundingHeading">
         <div class="section-title">
             <div>
                 <p class="eyebrow">SOSTEGNO COLLETTIVO</p>
-                <h2>Il valore del <span>crowdfunding.</span></h2>
+                <h2 id="crowdfundingHeading">Il valore del <span>crowdfunding.</span></h2>
             </div>
         </div>
 
@@ -145,25 +147,24 @@
         </div>
     </section>
 
-    <section class="projects-section">
+    <section class="projects-section" aria-labelledby="activeProjectsHeading">
         <div class="section-title">
             <div>
                 <p class="eyebrow">CAMPAGNE DI RACCOLTA FONDI ATTIVE</p>
-                <h2>Progetti da <span>far crescere.</span></h2>
+                <h2 id="activeProjectsHeading">Progetti da <span>far crescere.</span></h2>
             </div>
             <a href="progetti.html" class="btn dark-btn">Tutti i progetti <span aria-hidden="true">↗</span></a>
         </div>
 
-        <!-- Le prime tre schede vengono generate automaticamente dal JSON. -->
         <div class="project-grid" id="homeProjectGrid" aria-live="polite">
             <p>Caricamento progetti...</p>
         </div>
     </section>
 
-    <section class="call-to-action">
+    <section class="call-to-action" aria-labelledby="ctaHeading">
         <div>
-            <p>HAI UN'IDEA DA FINANZIARE?</p>
-            <h2>Lancia la tua campagna di crowdfunding.</h2>
+            <p class="eyebrow">HAI UN'IDEA DA FINANZIARE?</p>
+            <h2 id="ctaHeading">Lancia la tua campagna di crowdfunding.</h2>
             <p>Presenta il tuo progetto, definisci il budget necessario e coinvolgi le persone che possono aiutarti a realizzarlo.</p>
         </div>
         <a href="aggiungi.html" class="btn dark-btn">Lancia un progetto <span aria-hidden="true">↗</span></a>
