@@ -1464,7 +1464,7 @@ html[data-theme="dark"] .progress-track {
     background-color: #454650 !important;
 }
 
-html[data-theme="dark"] .wizard-step:not(.active) .step-number {
+html[data-theme="dark"] .wizard-step:not(.active) . {
     background-color: #2a2b32 !important;
     color: #ffffff !important;
     border-color: #555761 !important;
@@ -1657,14 +1657,14 @@ html[data-theme="dark"] .wizard-step.active {
     background-color: #243428 !important;
 }
 
-.step-number {
+. {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 2.1875rem;
     height: 2.1875rem;
     flex-shrink: 0;
-    border: 1px solid var(--border);
+    /*border: 1px solid var(--border);*/
     border-radius: 50%;
     font-weight: 700;
 }
@@ -1672,7 +1672,7 @@ html[data-theme="dark"] .wizard-step.active {
 .wizard-step.active .step-number,
 .wizard-step.completed .step-number {
     color: #ffffff;
-    background-color: var(--green);
+    background-color: var(--green-dark);
     border-color: var(--green-dark);
 }
 
