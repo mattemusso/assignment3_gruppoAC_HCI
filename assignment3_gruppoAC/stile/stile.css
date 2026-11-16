@@ -828,7 +828,7 @@ input[type="checkbox"] {
 }
 
 .register-link {
-    text-align: center;
+    text-align: start;
     color: var(--muted);
     font-size: 0.8125rem;
 }
