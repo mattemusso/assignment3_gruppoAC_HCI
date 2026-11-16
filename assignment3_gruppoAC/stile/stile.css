@@ -1018,7 +1018,7 @@ h1 {
     text-decoration: none;
     font: inherit;
     font-size: 0.875rem;
-    text-align: left;
+    text-align: start;
     cursor: pointer;
     margin-bottom: 0.25rem;
 }
@@ -1136,7 +1136,7 @@ h1 {
         display: block;
         width: 100%;
         padding: 0.8125rem 0.625rem;
-        text-align: left;
+        text-align: start;
         color: var(--text);
         background-color: #ffffff;
         border-bottom: 1px solid var(--border);
@@ -2250,15 +2250,10 @@ html[data-theme="dark"] .wizard-step.active small {
     color: #1a1e17;
 }
 
-.partner-menu {
-    text-align: left;
-}
-
-.partner-btn,
-.submenu-btn {
-    text-align: center;
-}
-
-.partner-submenu a {
-    text-align: left;
+.partner-menu a,
+.submenu-btn,
+.partner-dropdown .partner-submenu a,
+.site-header nav > a,
+.site-header .partner-btn {
+    text-align: start;
 }
