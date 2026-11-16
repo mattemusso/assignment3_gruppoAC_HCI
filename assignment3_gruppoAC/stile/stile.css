@@ -2257,3 +2257,7 @@ html[data-theme="dark"] .wizard-step.active small {
 .site-header .partner-btn {
     text-align: start;
 }
+
+html[data-theme="dark"] .login-types .role:not(.active) {
+    color: #000000 !important;
+}
