@@ -2249,3 +2249,16 @@ html[data-theme="dark"] .wizard-step.active small {
     background-color: #e6f2eb;
     color: #1a1e17;
 }
+
+.partner-menu {
+    text-align: left;
+}
+
+.partner-btn,
+.submenu-btn {
+    text-align: center;
+}
+
+.partner-submenu a {
+    text-align: left;
+}
