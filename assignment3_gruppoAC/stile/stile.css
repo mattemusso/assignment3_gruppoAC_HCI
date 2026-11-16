@@ -1672,7 +1672,7 @@ html[data-theme="dark"] .wizard-step.active {
 .wizard-step.active .step-number,
 .wizard-step.completed .step-number {
     color: #ffffff;
-    background-color: var(--green-dark);
+    background-color: var(--green);
     border-color: var(--green-dark);
 }
 
