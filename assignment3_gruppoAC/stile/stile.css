@@ -2250,15 +2250,10 @@ html[data-theme="dark"] .wizard-step.active small {
     color: #1a1e17;
 }
 
-.partner-menu {
-    text-align: left;
-}
-
+.partner-menu,
 .partner-btn,
-.submenu-btn {
-    text-align: center;
-}
-
+.submenu-btn,
+.partner-submenu,
 .partner-submenu a {
-    text-align: left;
+    text-align: center;
 }
