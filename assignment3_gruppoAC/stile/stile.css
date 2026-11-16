@@ -1657,7 +1657,7 @@ html[data-theme="dark"] .wizard-step.active {
     background-color: #243428 !important;
 }
 
-. {
+.step-number{
     display: flex;
     align-items: center;
     justify-content: center;
