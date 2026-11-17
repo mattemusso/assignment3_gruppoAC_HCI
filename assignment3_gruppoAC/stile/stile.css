@@ -326,7 +326,8 @@ html[data-theme="dark"] textarea:focus-visible {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    margin: 2rem 2rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
     gap: 1rem;
     padding: 0.875rem 1.25rem;
     border: 1px solid transparent;
